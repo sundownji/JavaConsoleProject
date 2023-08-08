@@ -20,6 +20,14 @@ public class Account {
 		this.balance = balance;	
 	}
 	
+	public void accountInfo() {
+	System.out.println("계좌번호 >"+accountNumber);
+	System.out.println("고객이름 >"+name);
+	System.out.println("잔고 >"+balance);
+	System.out.println("---------------------");
+	System.out.println("---------------------");
+	}
+	
 	public String getAccountNumber() {
 		return accountNumber;
 	}
