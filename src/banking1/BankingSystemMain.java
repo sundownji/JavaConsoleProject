@@ -6,7 +6,7 @@ public class BankingSystemMain {
 	public static Scanner scan = new Scanner(System.in);
 	static Account[] acc = new Account[50];
 	//배열에 저장된 계좌 정보를 카운트하기 위한 멤버변수
-	static int NumofAccounts = 0;		
+	static int numofAccounts = 0;		
 	
 		
 	public static void showMenu() {
@@ -28,7 +28,7 @@ public class BankingSystemMain {
 		String accName = scan.nextLine();
 		System.out.println("잔고:");
 		int bal = scan.nextInt();
-		acc[NumofAccounts++] = new Account(accNum,accName,bal);
+		acc[numofAccounts++] = new Account(accNum,accName,bal);
 		System.out.println("계좌가 생성되었습니다.");
 	}
 		
@@ -41,7 +41,7 @@ public class BankingSystemMain {
 		System.out.println("계좌번호와 입금할 금액을 입력하세요");
 		System.out.println("계좌번호:");String accNum = scan.nextLine();
 		System.out.println("입금액:");int money =scan.nextInt();
-		for (int i = 0; i< NumofAccounts; i++) {
+		for (int i = 0; i< numofAccounts; i++) {
 			if (acc[i].getAccountNumber().equals(accNum)) {
 				acc[i].plusAccMoney(money);
 				System.out.println("입금이 완료되었습니다.");
@@ -56,7 +56,7 @@ public class BankingSystemMain {
 		System.out.println("계좌번호와 출금할 금액을 입력하세요.");
 		System.out.println("계좌번호:");String accNum = scan.nextLine();
 		System.out.println("출금액:");int money = scan.nextInt();
-		for (int i = 0; i< NumofAccounts; i++) {
+		for (int i = 0; i< numofAccounts; i++) {
 			if (acc[i].getAccountNumber().equals(accNum)) {
 				acc[i].minusAccMoney(money);
 				System.out.println("출금이 완료되었습니다.");
@@ -69,7 +69,7 @@ public class BankingSystemMain {
 	public static void showAccInfo() {// 전체계좌정보출력
 		System.out.println("****계좌정보출력****");
 		System.out.println("---------------------");
-		for(int i = 0; i<NumofAccounts; i++) {
+		for(int i = 0; i<numofAccounts; i++) {
 			acc[i].accountInfo();
 		}
 		

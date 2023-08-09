@@ -1,4 +1,4 @@
-package banking2;
+package banking3;
 
 import java.util.Scanner;
 
@@ -27,8 +27,7 @@ public class NormalAccount extends Account{
 		super.balance = (int)(super.balance + (super.balance * inter)+money);
 		return true;
 	}
-
-
+	
 	@Override
 	public void accountInfo() {
 		System.out.println("----------------------------");
