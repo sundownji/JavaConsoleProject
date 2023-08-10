@@ -4,11 +4,12 @@ public class HighCreditAccount extends Account {
 	//기본이자, 신용등급
 	private String highcredit;
 	private double inter;
+	
 
 	//생성자
 	public HighCreditAccount(String accountNumber,String name, int balance, int inter, String highcredit) {
 		super(accountNumber,name,balance);
-		this.inter=inter/100.0;
+		this.inter=inter / 100.0;
 		this.highcredit=highcredit;
 	}
 	
@@ -32,19 +33,19 @@ public class HighCreditAccount extends Account {
 	}
 	
 	@Override
-	public boolean plusAccMoney(int money) {
+	public void plusAccMoney(int money) {
 		switch(highcredit) {
 		case "A": case "a":
-		super.balance=(int)(super.balance + (super.balance * inter)+ (super.balance * 0.07)+ money);
+		super.setBalance((int)(super.getBalance() + (super.getBalance() * inter)+ (super.getBalance() * 0.07)+ money));
 		break;
 		case "B": case "b":
-		super.balance=(int)(super.balance + (super.balance * inter)+ (super.balance * 0.04)+ money);
+		super.setBalance((int)(super.getBalance() + (super.getBalance() * inter)+ (super.getBalance() * 0.04)+ money));
 		break;
 		case "C": case "c":
-		super.balance=(int)(super.balance + (super.balance * inter)+ (super.balance * 0.04)+ money);
+		super.setBalance((int)(super.getBalance() + (super.getBalance() * inter)+ (super.getBalance() * 0.04)+ money));
 		break;
 	}
-	return true;
+	
 	}
 	@Override
 	public void accountInfo() {

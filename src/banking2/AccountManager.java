@@ -1,6 +1,7 @@
 package banking2;
 
 import java.util.Scanner;
+import banking2.HighCreditAccount;
 
 public class AccountManager  {
 
@@ -89,6 +90,7 @@ public class AccountManager  {
 		}
 	}
 
+	
 	
 	public static void showAccInfo() {// 전체계좌정보출력
 		System.out.println("****계좌정보출력****");

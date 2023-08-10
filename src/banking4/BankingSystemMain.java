@@ -1,4 +1,4 @@
-package banking3;
+package banking4;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ public class BankingSystemMain {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
-		AccountManager amanager = new AccountManager(50);
+		AccountManager amanager = new AccountManager();
 		
 			while (true) {
 				amanager.showMenu();
@@ -24,6 +24,9 @@ public class BankingSystemMain {
 					amanager.withdrawMoney();
 					break;
 				case ICustomDefine.INQUIRE:
+					amanager.showAccInfo();
+					break;
+				case ICustomDefine.DELETE:
 					amanager.showAccInfo();
 					break;
 				case ICustomDefine.EXIT:
