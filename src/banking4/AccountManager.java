@@ -25,6 +25,18 @@ public class AccountManager {
 		System.out.println("5.계좌정보삭제");
 		System.out.println("6.프로그램종료");
 		System.out.print("선택:");
+		
+		while (true) {
+			try {
+				int choice = scan.nextInt();
+				scan.nextLine();
+				break;
+			} 
+			catch (InputMismatchException e) {
+				scan.nextLine();
+				System.out.println("숫자만 입력해주세요.");
+			}
+		}
 	}
 	
 
@@ -38,7 +50,7 @@ public class AccountManager {
 		
 		System.out.print("계좌번호:");String accNum= scan.nextLine();
 		for(Account acc : accountset) {
-			if(acc.equals(accNum)) {
+			if(!acc.equals(accNum)) {
 				System.out.println("중복된 계좌가 발견되었습니다.");
 				System.out.println("중복된 계좌에 덮어쓸까요? (Y/N)"); String yn = scan.nextLine();
 				switch(yn.toUpperCase()) {
@@ -49,7 +61,9 @@ public class AccountManager {
 					break;
 				case "N":
 					System.out.println("취소됐습니다.");
+					return;
 				}
+				
 			}
 		}
 		
@@ -185,7 +199,6 @@ public class AccountManager {
 		
 		System.out.println("전체계좌정보 출력이 완료되었습니다.");
 	}
-	
 	
 
 }

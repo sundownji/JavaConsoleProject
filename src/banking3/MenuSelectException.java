@@ -3,8 +3,11 @@ package banking3;
 public class MenuSelectException extends Exception{
 
 	public MenuSelectException()  {
-		System.out.println("잘못 입력하셨습니다.");
-
+		super();
+	}
+	
+	public void SelectException() {
+	System.out.println("지정된 정수 숫자외의 숫자를 입력해주세요.");
 	}
 
 }
