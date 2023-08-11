@@ -24,19 +24,7 @@ public class AccountManager {
 		System.out.println("4.계좌정보출력");
 		System.out.println("5.계좌정보삭제");
 		System.out.println("6.프로그램종료");
-		System.out.print("선택:");
-		
-		while (true) {
-			try {
-				int choice = scan.nextInt();
-				scan.nextLine();
-				break;
-			} 
-			catch (InputMismatchException e) {
-				scan.nextLine();
-				System.out.println("숫자만 입력해주세요.");
-			}
-		}
+		System.out.println("-------------------------");
 	}
 	
 
@@ -50,7 +38,7 @@ public class AccountManager {
 		
 		System.out.print("계좌번호:");String accNum= scan.nextLine();
 		for(Account acc : accountset) {
-			if(!acc.equals(accNum)) {
+			if(acc.equals(accNum)) {
 				System.out.println("중복된 계좌가 발견되었습니다.");
 				System.out.println("중복된 계좌에 덮어쓸까요? (Y/N)"); String yn = scan.nextLine();
 				switch(yn.toUpperCase()) {
@@ -89,11 +77,9 @@ public class AccountManager {
 			break;
 		}
 			System.out.println("계좌가 생성되었습니다.");
-			
-			
-
-		
 	}
+	
+	
 	
 	public void depositMoney() {//입금 
 		System.out.println("계좌번호와 입금할 금액을 입력하세요");
@@ -121,14 +107,13 @@ public class AccountManager {
 					acc.plusAccMoney(money);
 					System.out.println("입금이 완료되었습니다.");
 					return;
-				}
-				
+				}		
 			}	
 			System.out.println("존재하지 않는 계좌번호입니다.");					
 		}
-		
 	}
 
+	
 	public void withdrawMoney(){//출금 
 		System.out.println("***출  금***");
 		System.out.println("계좌번호와 출금할 금액을 입력하세요.");
@@ -185,8 +170,24 @@ public class AccountManager {
 			
 			}
 		}
-			
 	
+	public void delectInfo(){//계좌정보삭제
+		System.out.println("****계좌정보삭제****");
+		System.out.println("삭제할 계좌번호를 입력하세요.");
+		System.out.print("계좌번호:");
+		String accNum = scan.nextLine();
+
+		
+		for(Account acc : accountset) {
+			if(acc.getAccountNumber().equals(accNum)) {
+				accountset.remove(acc);
+				System.out.println("삭제되었습니다.");
+			}
+			else {
+				System.out.println("존재하지않는 계좌번호입니다.");
+			}	
+		}
+	}
 
 
 	public void showAccInfo() {// 전체계좌정보출력

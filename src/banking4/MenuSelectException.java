@@ -1,10 +1,9 @@
 package banking4;
 
 public class MenuSelectException extends Exception{
-
-	public MenuSelectException()  {
-		System.out.println("잘못 입력하셨습니다.");
-
+	//생성자를 바꿔라아아 어떻게 ㅏ바꿔야하나아아
+	public MenuSelectException(String errMsg)  {
+		super(errMsg);
 	}
 
 }

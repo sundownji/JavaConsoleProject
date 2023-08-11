@@ -22,28 +22,8 @@ public class AccountManager {
 		System.out.println("3.출   금");
 		System.out.println("4.계좌정보출력");
 		System.out.println("5.프로그램종료");
-		System.out.print("선택:"); 
-		int choice;
-		while (true) {
-			try {
-				choice = scan.nextInt();
-				scan.nextLine();
-				break;
-			} 
-			catch (InputMismatchException e) {
-				scan.nextLine();
-				System.out.println("숫자만 입력해주세요.");
-			}
-			
-//		if(0>choice || choice>5) {
-//			System.out.println("메뉴에 맞는 번호를 입력해주세요 ");
-			
-		}
+	
 	}
-	
-		
-	
-
 	
 
 	public void makeAccount() { //계좌개설을 위한 함수 

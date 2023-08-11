@@ -1,5 +1,6 @@
 package banking3;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BankingSystemMain {
@@ -9,9 +10,12 @@ public class BankingSystemMain {
 		Scanner scan = new Scanner(System.in);
 		AccountManager amanager = new AccountManager(50);
 		
-			while (true) {
-				amanager.showMenu();
+		while (true) {
+			amanager.showMenu();
+			try {
+				System.out.print("선택:");
 				int selNum = scan.nextInt();
+				scan.nextLine();
 				
 				switch (selNum) {
 				case ICustomDefine.MAKE:
@@ -29,8 +33,13 @@ public class BankingSystemMain {
 				case ICustomDefine.EXIT:
 					System.out.println("프로그램을 종료합니다.");
 					return;
-			}
+				}
 		
-		}
+			}
+			catch(InputMismatchException e){
+				System.out.println("숫자를 입력하세요.");
+				scan.nextLine();
+			}
+			}
 	}
 }

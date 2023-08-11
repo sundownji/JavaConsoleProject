@@ -1,4 +1,4 @@
-package banking5;
+package banking6;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,6 +20,7 @@ public class AccountManager {
 //	private Account[] acc ;
  	//배열에 저장된 계좌 정보를 카운트하기 위한 멤버변수
 //	private int numofAccounts = 0;
+	AutoSaver saver = new AutoSaver();
 	
 	
 	public void showMenu() {
@@ -29,7 +30,8 @@ public class AccountManager {
 		System.out.println("3.출   금");
 		System.out.println("4.계좌정보출력");
 		System.out.println("5.계좌정보삭제");
-		System.out.println("6.프로그램종료");
+		System.out.println("6.저장옵션");
+		System.out.println("7.프로그램종료");
 		System.out.println("-------------------------");
 	}
 	
@@ -177,12 +179,28 @@ public class AccountManager {
 			}
 		}
 	
+	public void saveInfo() {
+		System.out.println("****저장옵션****");
+		System.out.println("1.자동저장 On, 2.자동저장 Off");
+		int choiceSave = scan.nextInt();
+		scan.nextLine();
+		
+		switch(choiceSave) {
+		case 1:
+			saver = new AutoSaver();
+			saver.setDaemon(true);
+			saver.start();
+		case 2:
+			saver.interrupt();
+		}
+	}
+	
 	public void delectInfo(){//계좌정보삭제
 		System.out.println("****계좌정보삭제****");
 		System.out.println("삭제할 계좌번호를 입력하세요.");
 		System.out.print("계좌번호:");
 		String accNum = scan.nextLine();
-
+	
 		
 		for(Account acc : accountset) {
 			if(acc.getAccountNumber().equals(accNum)) {
@@ -210,7 +228,7 @@ public class AccountManager {
 	
 	public void objectInput() {
 		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("src/banking5/AccountInfo.obj"));
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("src/banking6/AccountInfo.obj"));
 			accountset = (Set<Account>)in.readObject();
 			in.close();
 			
@@ -226,7 +244,7 @@ public class AccountManager {
 	
 	public void objectOutput() {
 		try {
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src/banking5/AccountInfo.obj"));
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src/banking6/AccountInfo.obj"));
 			
 //			for(Account acc :accountset) {
 //				out.writeObject(acc);

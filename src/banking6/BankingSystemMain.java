@@ -1,12 +1,11 @@
-package banking5;
+package banking6;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class BankingSystemMain {
+public class BankingSystemMain implements ICustomDefine {
 	
 	public static void main(String[] args) {
-		
 		Scanner scan = new Scanner(System.in);
 		AccountManager amanager = new AccountManager();
 		amanager.objectInput();
@@ -19,22 +18,25 @@ public class BankingSystemMain {
 				scan.nextLine();
 				
 				switch (choice) {
-				case ICustomDefine.MAKE:
+				case MAKE:
 					amanager.makeAccount();
 					break;
-				case ICustomDefine.DEPOSIT:
+				case DEPOSIT:
 					amanager.depositMoney();
 					break;
-				case ICustomDefine.WITHDRAW:
+				case WITHDRAW:
 					amanager.withdrawMoney();
 					break;
-				case ICustomDefine.INQUIRE:
+				case INQUIRE:
 					amanager.showAccInfo();
 					break;
-				case ICustomDefine.DELETE:
+				case DELETE:
 					amanager.delectInfo();
 					break;
-				case ICustomDefine.EXIT:
+				case AUTOSAVE:
+					amanager.saveInfo();
+					break;
+				case EXIT:
 					System.out.println("프로그램을 종료합니다.");
 					amanager.objectOutput();
 					return;

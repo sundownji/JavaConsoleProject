@@ -1,21 +1,18 @@
-package banking2;
+package banking6;
+
 
 import java.io.Serializable;
+
+
 import java.util.Scanner;
 
-//메뉴 따로 빼기. -> menu로 이름 바꾸기
-//account, normal,high -> 
-//계좌정보, 계좌주 이름 
-/*질문 多 */
-//hashset -> 중복계좌 웅앵
-//thread -> 자동저장
-public class Account{
+public abstract class Account implements Serializable{
 	
 	private String accountNumber; //계좌번호(String형)
 	private String name; //이름(String형)
-	int balance; //잔액(int형)
+	private int balance; //잔액(int형)
 
-		
+	//생성
 	public Account(String accountNumber,String name, int balance) {
 		this.accountNumber = accountNumber;
 		this.name = name;
@@ -23,6 +20,7 @@ public class Account{
 	
 	}
 	
+	//계좌정보메소드
 	public void accountInfo() {
 	System.out.println("계좌번호 >"+accountNumber);
 	System.out.println("고객이름 >"+name);
@@ -54,20 +52,22 @@ public class Account{
 		this.balance = balance;
 	}
 	
-	public boolean plusAccMoney(int money) {
+	public void plusAccMoney(int money) {
 		balance += money;
-		return true;
+		
 		
 	}
-	public boolean minusAccMoney(int money) {
+	public void minusAccMoney(int money) {
 		balance -= money;
-		return true;
+		
+		
 	}
-
-
 	
+	@Override
+	public abstract String toString();
+
+}
 	
-	}
 
 
 	

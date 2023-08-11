@@ -1,5 +1,14 @@
 package banking5;
 
+
+import java.io.Serializable;
+
+//정보 불러오기 예외발생?
+//io를 통해서 정보 불러오기 -try ~ catch
+//불러올수없기 때문에 ->오류 발생 (catch)
+//파일 있으면 오류가 없어진다.
+//text처리만 하면된다. 
+
 //Account를 추상클래스로 정의~
 //객체 생성 불가능  
 //상속 목적으로 사용 
@@ -11,7 +20,7 @@ import java.util.Scanner;
 /*질문 多 */
 //hashset -> 중복계좌 웅앵
 //thread -> 자동저장
-public abstract class Account {
+public abstract class Account implements Serializable{
 	
 	private String accountNumber; //계좌번호(String형)
 	private String name; //이름(String형)
