@@ -1,6 +1,6 @@
 package banking6;
 
-public abstract class HighCreditAccount extends Account {
+public class HighCreditAccount extends Account {
 	//기본이자, 신용등급
 	private String highcredit;
 	private double inter;
@@ -56,8 +56,8 @@ public abstract class HighCreditAccount extends Account {
 	
 	@Override
 	public String toString() {
-		String str = String.format("[신계좌], %s, %s, %d, %d", getAccountNumber(), getName(), getBalance(), (int)(inter*100),highcredit);
-		return null;
+		String str = String.format("[신용계좌],%s, %s, %s, %d, %d", getAccountNumber(), getName(), getBalance(), (int)(inter*100), highcredit);
+		return str;
 	}
 	
 

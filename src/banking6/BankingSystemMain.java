@@ -8,7 +8,7 @@ public class BankingSystemMain implements ICustomDefine {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		AccountManager amanager = new AccountManager();
-		amanager.objectInput();
+		amanager.objectInput();//여기서 채워져
 		
 		while (true) {
 				amanager.showMenu();

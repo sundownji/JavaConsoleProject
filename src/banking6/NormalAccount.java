@@ -2,7 +2,7 @@ package banking6;
 
 import java.util.Scanner;
 
-public abstract class NormalAccount extends Account{
+public class NormalAccount extends Account{
 	//기본이자 변수
 	double inter;
 	
@@ -36,7 +36,8 @@ public abstract class NormalAccount extends Account{
 	}
 	@Override
 	public String toString() {
-		String str = String.format(getAccountNumber(), getAccountNumber(), getName(), getBalance(), (int)(inter*100));
+		String str = String.format("[기본계좌], %s, %s, %s, %d, %d",getAccountNumber(), getAccountNumber(), getName(), getBalance(), (int)(inter*100));
+		return str;
 	}
 	
 

@@ -17,9 +17,7 @@ public class AccountManager {
 	
 	//인스턴스배열을 컬렉션으로 변경
 	Set<Account> accountset = new HashSet<Account>();
-//	private Account[] acc ;
- 	//배열에 저장된 계좌 정보를 카운트하기 위한 멤버변수
-//	private int numofAccounts = 0;
+
 	
 	
 	public void showMenu() {

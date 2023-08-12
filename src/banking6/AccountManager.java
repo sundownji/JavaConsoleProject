@@ -16,13 +16,21 @@ public class AccountManager {
 	public static Scanner scan = new Scanner(System.in);
 	
 	//인스턴스배열을 컬렉션으로 변경
-	Set<Account> accountset = new HashSet<Account>();
-//	private Account[] acc ;
- 	//배열에 저장된 계좌 정보를 카운트하기 위한 멤버변수
-//	private int numofAccounts = 0;
-	AutoSaver saver = new AutoSaver();
+	Set<Account> accountset = new HashSet<Account>();	
 	
+	AutoSaver saver = new AutoSaver(null);
 	
+
+	public Set<Account> getAccountset() {
+		return accountset;
+	}
+
+
+	public void setAccountset(Set<Account> accountset) {
+		this.accountset = accountset;
+	}
+
+
 	public void showMenu() {
 		System.out.println("----------Menu----------");
 		System.out.println("1.계좌개설");
@@ -41,7 +49,7 @@ public class AccountManager {
 		System.out.println("----계좌선택----");
 		System.out.println("1.보통계좌");
 		System.out.println("2.신용신뢰계좌");
-		System.out.print("선택:");int choice = scan.nextInt();
+		System.out.print("선택:");int choice1 = scan.nextInt();
 		scan.nextLine();
 		
 		System.out.print("계좌번호:");String accNum= scan.nextLine();
@@ -72,7 +80,7 @@ public class AccountManager {
 	
 		Account acct = null;
 		boolean flag = false;
-		switch (choice) {
+		switch (choice1) {
 		case 1:
 			 acct = new NormalAccount(accNum,accName,bal,inter);
 			 flag = accountset.add(acct);
@@ -187,11 +195,13 @@ public class AccountManager {
 		
 		switch(choiceSave) {
 		case 1:
-			saver = new AutoSaver();
+			saver = new AutoSaver(this);
 			saver.setDaemon(true);
 			saver.start();
+			break;
 		case 2:
 			saver.interrupt();
+			break;
 		}
 	}
 	
