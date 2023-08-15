@@ -46,7 +46,7 @@ public class BankingSystemMain {
 			}
 	
 			catch(InputMismatchException e) {
-				System.out.println("문자를 입력하셨습니다. 다시 입력해주세요.");
+				System.out.println("문자를 입력하셨습니다. 지정된 숫자만 입력해주세요.");
 				scan.nextLine();
 			}
 			

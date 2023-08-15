@@ -3,9 +3,11 @@ package banking3;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import banking4.MenuSelectException;
+
 public class BankingSystemMain {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		
 		Scanner scan = new Scanner(System.in);
 		AccountManager amanager = new AccountManager(50);
@@ -16,6 +18,7 @@ public class BankingSystemMain {
 				System.out.print("선택:");
 				int selNum = scan.nextInt();
 				scan.nextLine();
+				
 				
 				switch (selNum) {
 				case ICustomDefine.MAKE:
@@ -33,13 +36,20 @@ public class BankingSystemMain {
 				case ICustomDefine.EXIT:
 					System.out.println("프로그램을 종료합니다.");
 					return;
+				default:
+					String errMsg = "지정된 숫자만 입력해주세요.(1~5까지) ";
+					MenuSelectException ex = new MenuSelectException(errMsg);
+					throw ex;
 				}
 		
 			}
 			catch(InputMismatchException e){
-				System.out.println("숫자를 입력하세요.");
+				System.out.println("문자를 입력하셨습니다. 지정된 숫자만 입력해주세요.");
 				scan.nextLine();
 			}
+			catch(MenuSelectException e) {
+				System.out.println(e.getMessage());
 			}
+		}
 	}
 }

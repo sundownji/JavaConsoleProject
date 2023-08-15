@@ -21,22 +21,20 @@ public class AccountManager {
 	
 	
 	public void showMenu() {
-		System.out.println("----------Menu----------");
-		System.out.println("1.계좌개설");
-		System.out.println("2.입   금");
-		System.out.println("3.출   금");
-		System.out.println("4.계좌정보출력");
-		System.out.println("5.계좌정보삭제");
-		System.out.println("6.프로그램종료");
-		System.out.println("-------------------------");
+		System.out.println("--------------------------------------Menu---------------------------------------");
+		System.out.print(" 1. 계좌개설 |");
+		System.out.print(" 2. 입   금 |");
+		System.out.print(" 3. 출   금 |");
+		System.out.print(" 4. 계좌정보출력 |");
+		System.out.print(" 5. 계좌정보삭제 |");
+		System.out.println(" 6. 프로그램종료 ");
+		System.out.println("---------------------------------------------------------------------------------");
 	}
 	
 
 	public void makeAccount() { //계좌개설을 위한 함수 
-		System.out.println("***신규계좌개설***");
-		System.out.println("----계좌선택----");
-		System.out.println("1.보통계좌");
-		System.out.println("2.신용신뢰계좌");
+		System.out.println("--------------------------<신규계좌개설>------------------------------");
+		System.out.println("계좌선택:1.보통예금계좌 / 2.신용신뢰계좌");
 		System.out.print("선택:");int choice = scan.nextInt();
 		scan.nextLine();
 		
@@ -49,7 +47,6 @@ public class AccountManager {
 				switch(yn.toUpperCase()) {
 				case "Y":
 					accountset.remove(acc);
-					accountset.add(acc);
 					System.out.println("덮어쓰기에 성공했습니다.");
 					break;
 				case "N":
@@ -62,7 +59,7 @@ public class AccountManager {
 		
 		
 		System.out.print("고객이름:");String accName = scan.nextLine();
-		System.out.print("잔고:");int bal = scan.nextInt();
+		System.out.print("잔   고:");int bal = scan.nextInt();
 		scan.nextLine();
 		System.out.print("기본이자%(정수형태로 입력):");int inter = scan.nextInt();
 		scan.nextLine();
@@ -87,6 +84,7 @@ public class AccountManager {
 	
 	
 	public void depositMoney() {//입금 
+		System.out.println("----------------------------<입 금>--------------------------------");
 		System.out.println("계좌번호와 입금할 금액을 입력하세요");
 		System.out.print("계좌번호:");  
 		String accNum = scan.nextLine();
@@ -120,7 +118,7 @@ public class AccountManager {
 
 	
 	public void withdrawMoney(){//출금 
-		System.out.println("***출  금***");
+		System.out.println("----------------------------<출 금>--------------------------------");
 		System.out.println("계좌번호와 출금할 금액을 입력하세요.");
 		System.out.print("계좌번호:");String accNum = scan.nextLine();
 		
@@ -177,7 +175,7 @@ public class AccountManager {
 		}
 	
 	public void delectInfo(){//계좌정보삭제
-		System.out.println("****계좌정보삭제****");
+		System.out.println("-----------------------------------<계좌정보삭제>------------------------------------");
 		System.out.println("삭제할 계좌번호를 입력하세요.");
 		System.out.print("계좌번호:");
 		String accNum = scan.nextLine();
@@ -196,17 +194,17 @@ public class AccountManager {
 
 
 	public void showAccInfo() {// 전체계좌정보출력
-		System.out.println("****계좌정보출력****");
-		System.out.println("---------------------");
+		System.out.println("-----------------------------------<계좌정보출력>------------------------------------");
+
 		for(Account acc : accountset) {
 			acc.accountInfo();
 		}
 		System.out.println("----------------------");
 		
-		System.out.println("전체계좌정보 출력이 완료되었습니다.");
+		System.out.println("전체 계좌 정보 출력이 완료되었습니다.");
 	}
 	
-	
+	//컬렉션 불러오기 
 	public void objectInput() {
 		try {
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream("src/banking5/AccountInfo.obj"));
@@ -222,7 +220,7 @@ public class AccountManager {
 			
 		}	
 	}
-	
+	//컬렉션 저장하기 
 	public void objectOutput() {
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src/banking5/AccountInfo.obj"));

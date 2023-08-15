@@ -29,14 +29,16 @@ public class NormalAccount extends Account{
 	
 	@Override
 	public void accountInfo() {
-		System.out.println("----------------------------");
+
 		super.accountInfo();
-		System.out.println("기본이자>"+(int)(inter*100)+"%");
+		System.out.println("기본이자 >"+(int)(inter*100)+"%");
+		System.out.println("----------------------------");
+		System.out.println(" ");
 	
 	}
 	@Override
 	public String toString() {
-		String str = String.format("[기본계좌], %s, %s, %s, %d, %d",getAccountNumber(), getAccountNumber(), getName(), getBalance(), (int)(inter*100));
+		String str = String.format("[기본계좌], %s, %s, %d, %d", getAccountNumber(), getName(), getBalance(), (int)(inter*100));
 		return str;
 	}
 	

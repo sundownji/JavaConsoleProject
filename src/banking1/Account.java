@@ -2,12 +2,6 @@ package banking1;
 
 import java.util.Scanner;
 
-//메뉴 따로 빼기. -> menu로 이름 바꾸기
-//account, normal,high -> 
-//계좌정보, 계좌주 이름 
-/*질문 多 */
-//hashset -> 중복계좌 웅앵
-//thread -> 자동저장
 public class Account {
 	
 	private String accountNumber; //계좌번호(String형)
@@ -23,8 +17,8 @@ public class Account {
 	public void accountInfo() {
 	System.out.println("계좌번호 >"+accountNumber);
 	System.out.println("고객이름 >"+name);
-	System.out.println("잔고 >"+balance);
-	System.out.println("---------------------");
+	System.out.println("잔고    >"+balance);
+	System.out.println(" ");
 	System.out.println("---------------------");
 	}
 	

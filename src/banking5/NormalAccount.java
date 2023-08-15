@@ -30,9 +30,9 @@ public class NormalAccount extends Account{
 	
 	@Override
 	public void accountInfo() {
-		System.out.println("----------------------------");
 		super.accountInfo();
-		System.out.println("기본이자>"+(int)(inter*100)+"%");
+		System.out.println("기본이자 >"+(int)(inter*100)+"%");
+		System.out.println(" ");
 	
 	}
 	

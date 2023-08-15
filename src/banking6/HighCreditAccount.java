@@ -9,7 +9,7 @@ public class HighCreditAccount extends Account {
 	//생성자
 	public HighCreditAccount(String accountNumber,String name, int balance, int inter, String highcredit) {
 		super(accountNumber,name,balance);
-		this.inter=inter / 100.0;
+		this.inter = inter / 100.0;
 		this.highcredit=highcredit;
 	}
 	
@@ -50,13 +50,14 @@ public class HighCreditAccount extends Account {
 	@Override
 	public void accountInfo() {
 		super.accountInfo();
-		System.out.println("기본이자>"+(int)(inter*100)+"%");
-		System.out.println("신용등급>"+highcredit);
+		System.out.println("기본이자 >"+(int)(inter*100)+"%");
+		System.out.println("신용등급 >"+highcredit);
+		System.out.println("----------------------------");
 	}
 	
 	@Override
 	public String toString() {
-		String str = String.format("[신용계좌],%s, %s, %s, %d, %d", getAccountNumber(), getName(), getBalance(), (int)(inter*100), highcredit);
+		String str = String.format("[신용계좌],%s, %s, %d, %d, %s", getAccountNumber(), getName(), getBalance(), (int)(inter*100), highcredit);
 		return str;
 	}
 	

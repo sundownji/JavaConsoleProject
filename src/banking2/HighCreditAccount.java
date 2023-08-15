@@ -51,8 +51,9 @@ public class HighCreditAccount extends Account {
 	@Override
 	public void accountInfo() {
 		super.accountInfo();
-		System.out.println("기본이자>"+(int)(inter*100)+"%");
-		System.out.println("신용등급>"+highcredit);
+		System.out.println("기본이자 >"+(int)(inter*100)+"%");
+		System.out.println("신용등급 >"+highcredit);
+		System.out.println(" ");
 	}
 	
 
