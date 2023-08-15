@@ -18,7 +18,10 @@ public class AccountManager {
 	//인스턴스배열을 컬렉션으로 변경
 	Set<Account> accountset = new HashSet<Account>();	
 	
-	AutoSaver saver = new AutoSaver(null);
+	//자동저장 객체 
+	AutoSaver saver = new AutoSaver(this);
+	
+	private boolean isRunning;
 	
 
 	public Set<Account> getAccountset() {
@@ -29,7 +32,14 @@ public class AccountManager {
 	public void setAccountset(Set<Account> accountset) {
 		this.accountset = accountset;
 	}
+	
+	 public boolean isRunning() {
+	        return isRunning;
+	    }
 
+	    public void setRunning(boolean isRunning) {
+	        this.isRunning = isRunning;
+	    }
 
 	public void showMenu() {
 		System.out.println("----------Menu----------");
@@ -54,7 +64,7 @@ public class AccountManager {
 		
 		System.out.print("계좌번호:");String accNum= scan.nextLine();
 		for(Account acc : accountset) {
-			if(acc.equals(accNum)) {
+			if(acc.getAccountNumber().equals(accNum)) {
 				System.out.println("중복된 계좌가 발견되었습니다.");
 				System.out.println("중복된 계좌에 덮어쓸까요? (Y/N)"); String yn = scan.nextLine();
 				switch(yn.toUpperCase()) {
@@ -153,7 +163,7 @@ public class AccountManager {
 			System.out.println("출금은 1000단위 양수만 가능합니다.");
 		}
 		else {
-				for(Account acc : accountset) {
+			for(Account acc : accountset) {
 					if(acc.getAccountNumber().equals(accNum)) {
 						if(minusmoney <= acc.getBalance()) {
 							acc.minusAccMoney(minusmoney);
@@ -175,32 +185,45 @@ public class AccountManager {
 							default : System.out.println("문자 Y 또는 N만 입력 가능합니다. ");
 							
 							}
+							return;
 							
 						}
 					}
 					else {
 						System.out.println("입력하신 계좌가 없습니다.");
-					}
 					
+					}
 				}
-			
+					
 			}
 		}
+	
+	public void isAlive() {};
 	
 	public void saveInfo() {
 		System.out.println("****저장옵션****");
 		System.out.println("1.자동저장 On, 2.자동저장 Off");
 		int choiceSave = scan.nextInt();
 		scan.nextLine();
+	
 		
 		switch(choiceSave) {
 		case 1:
+			if(saver != null && saver.isAlive()) {
+				System.out.println("이미 자동저장이 실행 중입니다.");
+			}
 			saver = new AutoSaver(this);
 			saver.setDaemon(true);
 			saver.start();
+			System.out.println("자동저장이 시작됐습니다.");
 			break;
 		case 2:
-			saver.interrupt();
+			if(saver != null && saver.isAlive()) {
+				saver.interrupt();
+				System.out.println("자동저장이 종료되었습니다.");
+			}
+			else
+				System.out.println("자동저장 실행 중이 아닙니다. ");
 			break;
 		}
 	}
