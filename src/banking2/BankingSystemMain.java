@@ -9,6 +9,7 @@ public class BankingSystemMain {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		
 		AccountManager amanager = new AccountManager(50);
 		
 			while (true) {

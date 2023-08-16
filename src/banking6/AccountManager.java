@@ -267,6 +267,7 @@ public class AccountManager {
 	//저장하기 
 	public void objectOutput() {
 		try {
+			//인스턴스를 파일로 저장하기 위해 출력스트림을 생성한다.
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src/banking6/AccountInfo.obj"));
 			
 //			for(Account acc :accountset) {

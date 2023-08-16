@@ -5,7 +5,9 @@ import java.io.Serializable;
 
 
 import java.util.Scanner;
-
+/*
+직렬화 :Account 클래스를 입출력의 대상으로 파일로 저장하기 위해 Serializable 인터페이스를
+구현하여 정의한다. */
 public abstract class Account implements Serializable{
 	
 	private String accountNumber; //계좌번호(String형)

@@ -10,9 +10,10 @@ import java.util.Set;
 
 
 public class AutoSaver extends Thread {
-
+	//어카운트 매너저 타입의 변수 
 	AccountManager am;
 	
+	//생성
 	public AutoSaver(AccountManager am) {
 		super();
 		this.am = am;
@@ -29,6 +30,7 @@ public class AutoSaver extends Thread {
 				for(Account acc : am.getAccountset()){
 					out.printf("%s\n",acc.toString());
 				}
+				out.close();
 				System.out.println("자동저장 됐습니다.");
 			}
 			catch(InterruptedException e) {

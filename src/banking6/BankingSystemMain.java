@@ -3,6 +3,10 @@ package banking6;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+/*IO관련 작업에서는 많은 부분에서 예외처리가 필요하다. 이때 예외를 throws하는 것보다
+	try~catch로 예외처리를 해주는 것을 권장한다. 예외를 무시하면 문제가 생겼을 때 
+	적절한 조치를 취하기 힘들기 때문이다.*/
 public class BankingSystemMain implements ICustomDefine {
 	
 	public static void main(String[] args) {
