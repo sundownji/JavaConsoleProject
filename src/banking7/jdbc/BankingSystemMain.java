@@ -30,6 +30,9 @@ public class BankingSystemMain {
 		String accName = scan.nextLine();
 		System.out.print("잔   고:");
 		int bal = scan.nextInt();
+		
+//		new InsertSQL(accNum, accName, bal).execute();
+		
 		acc[numofAccounts++] = new Account(accNum,accName,bal);
 		System.out.println("계좌가 생성되었습니다.");
 	}
